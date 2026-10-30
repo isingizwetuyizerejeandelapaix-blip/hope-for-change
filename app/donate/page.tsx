@@ -441,14 +441,20 @@ function DonateContent() {
       {selectedEmergency && step !== 3 && (
         <section className="py-12 bg-secondary/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mx-auto">
-              <h3 className="text-xl font-bold text-foreground mb-4">{selectedEmergency.title} Progress</h3>
-              <div className="space-y-2">
+            <div className="max-w-2xl mx-auto rounded-2xl border border-border bg-background/80 p-5 shadow-sm backdrop-blur-sm">
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <h3 className="text-xl font-bold text-foreground">{selectedEmergency.title} Progress</h3>
+                <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
+                  {Math.min(Math.round((selectedEmergency.raised / selectedEmergency.goal) * 100), 100)}%
+                </span>
+              </div>
+
+              <div className="space-y-3">
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">${selectedEmergency.raised.toLocaleString()} raised</span>
-                  <span className="font-medium">${selectedEmergency.goal.toLocaleString()} goal</span>
+                  <span className="font-medium text-foreground">${selectedEmergency.goal.toLocaleString()} goal</span>
                 </div>
-                <Progress value={(selectedEmergency.raised / selectedEmergency.goal) * 100} className="h-3" />
+                <Progress value={(selectedEmergency.raised / selectedEmergency.goal) * 100} className="h-3.5" />
               </div>
             </div>
           </div>

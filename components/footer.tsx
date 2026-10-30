@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Heart, Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
@@ -10,7 +10,6 @@ import { useState } from "react"
 const footerLinks = {
   organization: [
     { label: "About Us", href: "/about" },
-    { label: "Our Team", href: "/about#team" },
     { label: "Careers", href: "/careers" },
     { label: "Annual Reports", href: "/news" },
     { label: "Press Room", href: "/news" },

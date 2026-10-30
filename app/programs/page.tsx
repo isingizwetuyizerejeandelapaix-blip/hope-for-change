@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
+import { Progress } from "@/components/ui/progress"
 import { programs } from "@/lib/data"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -186,6 +187,19 @@ export default function ProgramsPage() {
                       {program.description}
                     </p>
 
+                    {program.budget && (
+                      <div className="mb-6">
+                        <div className="mb-2 flex items-center justify-between text-sm gap-3">
+                          <span className="text-muted-foreground">${program.budget.raised.toLocaleString()} raised</span>
+                          <span className="font-medium text-foreground">Goal: ${program.budget.goal.toLocaleString()}</span>
+                        </div>
+                        <Progress
+                          value={(program.budget.raised / program.budget.goal) * 100}
+                          className="h-3"
+                        />
+                      </div>
+                    )}
+
                     {/* Stats */}
                     <div className="grid grid-cols-3 gap-4 mb-8">
                       <Card>
@@ -235,6 +249,38 @@ export default function ProgramsPage() {
                 </motion.div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Budget Overview */}
+      <section className="py-20 lg:py-28 bg-secondary/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-10 text-center">
+              <div className="text-sm uppercase tracking-[0.2em] text-primary font-medium">Funding Overview</div>
+              <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-foreground">Program Budget Progress</h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {programs.map((program) => (
+                <div key={program.id} className="rounded-2xl border border-border bg-background p-5 shadow-sm">
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <h3 className="text-lg font-semibold text-foreground">{program.title}</h3>
+                    <span className="rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
+                      {Math.min(Math.round((program.budget.raised / program.budget.goal) * 100), 100)}%
+                    </span>
+                  </div>
+
+                  <div className="mb-3 flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Raised: ${program.budget.raised.toLocaleString()}</span>
+                    <span className="font-medium text-foreground">Goal: ${program.budget.goal.toLocaleString()}</span>
+                  </div>
+
+                  <Progress value={(program.budget.raised / program.budget.goal) * 100} className="h-2.5" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

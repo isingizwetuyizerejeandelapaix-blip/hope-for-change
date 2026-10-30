@@ -1,49 +1,96 @@
+import { Description } from "@radix-ui/react-toast"
+import { title } from "process"
+
 // Sample placeholder program data for the humanitarian organization
 export const programs = [
   {
     id: "Women Empowerment",
     title: "Women Empowerment",
-    description: "Grouping people together for a common goal achievement.",
+    description: "Supporting women with income-generating skills, leadership training, and access to resources for sustainable independence.",
     image: "emp1.jpg",
     icon: "heart",
     stats: { helped: "123+", countries: 1, teams: 120 },
+    budget: { raised: 0, goal: 85000 },
+    budgetBreakdown: [
+      { label: "Skills training", amount: 9000 },
+      { label: "Microenterprise support", amount: 12000 },
+      { label: "Leadership workshops", amount: 7000 },
+      { label: "Monitoring & support", amount: 5000 },
+    ],
     featured: true,
   },
   {
-    id: "Youth Empowrment",
+    id: "Youth Empowerment",
     title: "Youth Empowerment",
-    description: "Comprehensive prenatal care, safe delivery services, and postnatal support for mothers and newborns in underserved communities.",
+    description: "Providing mentorship, skills training, and opportunities that help young people build brighter futures and stronger communities.",
     image: "clear1.jpg",
     icon: "heart",
     stats: { helped: "250+", countries: 1, clinics: 15 },
+    budget: { raised: 0, goal: 75000 },
+    budgetBreakdown: [
+      { label: "Vocational training", amount: 16000 },
+      { label: "Youth mentoring", amount: 10000 },
+      { label: "Entrepreneurship coaching", amount: 14000 },
+      { label: "Community engagement", amount: 8000 },
+    ],
     featured: true,
   },
   {
     id: "Humanitarian Assistance",
     title: "Humanitarian Assistance",
-    description: "Basic needs to the family for better quality of life.",
+    description: "Delivering emergency food, shelter, and essential support to families facing crisis, displacement, and hardship.",
     image: "matera.jpeg",
     icon: "heart",
     stats: { helped: "100+", countries: 1, supported: "134+" },
+    budget: { raised: 0, goal: 100000 },
+    budgetBreakdown: [
+      { label: "Emergency food packs", amount: 22000 },
+      { label: "Shelter and basic needs", amount: 18000 },
+      { label: "Transportation & logistics", amount: 12000 },
+      { label: "Field coordination", amount: 8000 },
+    ],
     featured: true,
   },
   {
-    id: "Education Support",
-    title: "Education Support",
-    description: "Every child is special education for securing future.",
-    image: "emp2.jpg",
+    id: "Child Protection ",
+    title: "Child Protection",
+    description: "Ensuring children are protected from child abuse and young people have access to school materials, mentoring, and learning support that helps them thrive.",
+    image: "protect.avif",
     icon: "scissors",
     stats: { helped: "75+", countries: 1, surgeries: "100+" },
+    budget: { raised: 0, goal: 75000 },
+    budgetBreakdown: [
+      { label: "School fee support", amount: 14000 },
+      { label: "Learning materials", amount: 11000 },
+      { label: "Tutoring support", amount: 9000 },
+      { label: "School follow-up", amount: 6000 },
+    ],
     featured: false,
   },
   {
-    id: "Family Economic Strengthning",
-    title: "Family Economic Strengthning",
-    description: "Treating severe malnutrition and providing therapeutic feeding programs for children and vulnerable populations.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=600&fit=crop",
+    id: "Family Economic Strengthening",
+    title: "Community Development",
+    description: "Helping households build resilient livelihoods through entrepreneurship, savings support, and practical resources for long-term stability.",
+    image: "clear1.jpg",
     icon: "apple",
-    stats: { helped: "300K+", countries: 40, centers: 150 },
+    stats: { helped: "300+", countries: 1, centers: 150 },
+    budget: { raised: 0, goal: 100000 },
+    budgetBreakdown: [
+      { label: "Seed capital", amount: 30000 },
+      { label: "Savings group support", amount: 20000 },
+      { label: "Agricultural inputs", amount: 22000 },
+      { label: "Business mentoring", amount: 12000 },
+    ],
     featured: false,
+  },
+  {
+    id: "Environmentalist",
+    title: "Environmental Protection",
+    description: "conserving everything around us and protecting everything around us ",
+    image: "plant.jpg ",
+    icon: "apple",
+    stats: { helped: "30", countries: 1, centers: 100 },
+    budget: { raised: 0, goal: 60000 },
   },
 ]
 
@@ -195,50 +242,6 @@ export const stats = [
   { label: "Years of Service", value: "3+", description: "Decades of humanitarian impact" },
 ]
 
-export const teamMembers = [
-  {
-    id: 1,
-    name: "Ishimwe Sugira Jean Christian",
-    role: "CEO & Founder",
-    bio: "Founder of the program and Orgnisation .",
-    image: "/team1.jpeg",
-  },
-  {
-    id: 2,
-    name: "Uwambaje Grace",
-    role: "Financial & Co-Founder",
-    bio: "Led the financial operations and strategic planning for Hope For Changes's expansion.",
-    image: "/team2.jpeg",
-  },
-  {
-    id: 3,
-    name: "Iradukunda Umubyeyi Jeanne D'arce",
-    role: "Chief Secretary",
-    bio: "experienced in administrative and operational management, with a focus on strategic planning and implementation.",
-    image: "/team3.jpeg",
-  },
-  {
-    id: 4,
-    name: "Bunane Jean Felix",
-    role: "Program Manager",
-    bio: "Skilled in managing complex health programs and coordinating with diverse stakeholders.",
-    image: "felix.jpeg",
-  },
-  {
-    id: 5,
-    name: "Uwambayishema Yvette",
-    role: "Volunteer Coordinator",
-    bio: "Skilled in managing complex health programs and coordinating with diverse stakeholders.",
-    image: "yvette.jpeg",
-  },
-  {
-    id: 6,
-    name: "Isingizwe Tuyizere Jean de la paix",
-    role: "Technical Advisor, Software Developer",
-    bio: "For more information refer to LinkedIn.",
-    image: "lapaix.jpeg",
-  },
-]
 
 export const volunteerPositions = [
   {
